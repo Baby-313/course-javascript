@@ -9,7 +9,7 @@ import {
 describe('ДЗ 1 - функции', () => {
   describe('returnFirstArgument', () => {
     it('должна возвращать переданный аргумент', () => {
-      expect(returnFirstArgument()).toBe(123);
+      expect(returnFirstArgument(123)).toBe(123);
       expect(returnFirstArgument('ls')).toBe('ls');
     });
   });
@@ -21,7 +21,7 @@ describe('ДЗ 1 - функции', () => {
     });
 
     it('значение по умолчанию второго аргумента должно быть 100', () => {
-      expect(sumWithDefaults()).toBe(110);
+      expect(sumWithDefaults(10)).toBe(110);
       expect(sumWithDefaults(-2)).toBe(98);
     });
   });
