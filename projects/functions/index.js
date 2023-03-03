@@ -58,7 +58,7 @@ function returnFnResult(fn) {
    console.log(f()); // выведет 13
  */
 function returnCounter(a=0) {
-  return function F() {
+  return function f() {
   return ++a;
   }
 }
