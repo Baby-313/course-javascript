@@ -72,7 +72,7 @@ function returnCounter(a = 0) {
  Пример:
    returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
  */
-function returnArgumentsArray(a, b, c) {
+function returnArgumentsArray() {
   const result = [];
   for (let i = 0; i < arguments.length; i++) {
     result[i] = arguments[i];
