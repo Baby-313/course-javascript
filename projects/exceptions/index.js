@@ -20,8 +20,15 @@
    isAllTrue([1, 2, 3, 4, 5], n => n < 10) // вернет true (потому что все элементы массива меньше 10)
    isAllTrue([100, 2, 3, 4, 5], n => n < 10) // вернет false (потому что как минимум первый элемент больше 10)
  */
-function isAllTrue(array, fn) {}
 
+function isAllTrue(array, fn) {
+for (let index = 0; index < array.length; index++) {
+  if (Array.isArray(array) == true ) {
+    fn(array)
+  }
+}
+
+}
 /*
  Задание 2:
 
