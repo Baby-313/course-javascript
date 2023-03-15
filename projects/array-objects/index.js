@@ -25,10 +25,10 @@ function forEach(array, fn) {
    const newArray = map([1, 2, 3], (el) => el ** 2);
    console.log(newArray); // выведет [1, 4, 9]
  */
-function map(array,fn) {
-  let copyArray=[];
+function map(array, fn) {
+  const copyArray = [];
   for (let i = 0; i < array.length; i++) {
-    copyArray[i]=fn(array[i], i, array);
+    copyArray[i] = fn(array[i], i, array);
   }
   return copyArray;
 }
@@ -43,15 +43,22 @@ function map(array,fn) {
    const sum = reduce([1, 2, 3], (all, current) => all + current);
    console.log(sum); // выведет 6
  */
-function reduce(array,fn,initial) {
-  var a = initial || array[0],
-  i = initial ? 0 : 1;
+/*
+Условный (тернарный) оператор - единственный оператор в JavaScript, 
+принимающий три операнда: условие, за которым следует знак вопроса (?), 
+затем выражение, которое выполняется, если условие истинно, сопровождается двоеточием (:), 
+и, наконец, выражение, которое выполняется, если условие ложно. 
+Он часто используется в качестве укороченного варианта условного оператора if.
+ */
+function reduce(array, fn, initial) {
+  let a = initial || array[0],
+    i = initial ? 0 : 1;
 
-for (; i < array.length; i++) {
-  a = fn(a, array[i], i, array);
-}
+  for (; i < array.length; i++) {
+    a = fn(a, array[i], i, array);
+  }
 
-return a;
+  return a;
 }
 
 /*
@@ -64,10 +71,10 @@ return a;
    console.log(keys) // выведет ['NAME', 'LASTNAME']
  */
 function upperProps(object) {
-  var arr = [];
-  for (var key in object) {
-      key = key.toUpperCase();
-      arr.push(key);
+  const arr = [];
+  for (let key in object) {
+    key = key.toUpperCase();
+    arr.push(key);
   }
   return arr;
 }
