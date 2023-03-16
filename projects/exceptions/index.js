@@ -28,9 +28,14 @@ function isAllTrue(array, fn) {
   if (typeof fn !== 'function') {
     throw new Error('fn is not a function');
   }
-  if (array.every(fn)) {
-    return true;
+  for (const el of array) {
+    if (!fn(el)) {
+      return false;
+    }
   }
+
+  return true;
+
 }
 
 /*
@@ -60,9 +65,13 @@ function isSomeTrue(array, fn) {
   if (typeof fn !== 'function') {
     throw new Error('fn is not a function');
   }
-  if (array.some(fn)) {
-    return true;
+  for (const el of array) {
+    if (fn(el)) {
+      return true;
+    }
   }
+
+  return false;
 }
 
 /*
@@ -135,10 +144,12 @@ function calculator(number = 0) {
     },
 
     div(...args) {
-      if (args.some((a) => a === 0)) {
-        throw new Error('division by 0');
+      for (args.some((a) => a !== 0);;) {
+        if (args.some((a) => a === 0)) {
+          throw new Error('division by 0');
+        }
+        return args.reduce((all, current) => all / current, number);
       }
-      return args.reduce((all, current) => all / current, number);
     },
 
     mul(...args) {

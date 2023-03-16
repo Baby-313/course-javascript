@@ -13,12 +13,12 @@ export default {
 
     return array[index];
   },
-  
-  getNextPhoto() {
-    const friend=this.getRandomElement(friendsDB);
-    const photos=photosDB(friend.id)
-    const photo=this.getRandomElement(photos);
 
-    return{friend,url:photo.url};
+  getNextPhoto() {
+    const friend = this.getRandomElement(friendsDB);
+    const photos = photosDB(friend.id);
+    const photo = this.getRandomElement(photos);
+
+    return { friend, url: photo.url };
   },
 };
