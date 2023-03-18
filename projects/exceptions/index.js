@@ -140,16 +140,21 @@ function calculator(number = 0) {
     },
 
     dif(...args) {
-      return args.reduce((all, current) => all - current, number);
+      for (let i = 0; i < args.length; i++) {
+        number -= args[i];
+        
+      }
+      return number;
     },
 
     div(...args) {
-      for (args.some((a) => a !== 0);;) {
-        if (args.some((a) => a === 0)) {
-          throw new Error('division by 0');
+      for (let i = 0; i < args.length; i++) {
+        if (args[i] === 0) {
+          throw new Error("division by 0");
         }
-        return args.reduce((all, current) => all / current, number);
-      }
+        number /= args[i];
+    }
+    return number;
     },
 
     mul(...args) {
