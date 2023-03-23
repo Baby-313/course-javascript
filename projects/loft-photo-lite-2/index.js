@@ -6,3 +6,4 @@ document.addEventListener('click', () => {
   const pageName = model.getRandomElement(pageNames);
   pages.openPage(pageName);
 });
+ 
