@@ -48,6 +48,7 @@ a {
     position: absolute;
     bottom: 60px;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .page-login-logo {
