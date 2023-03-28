@@ -35,7 +35,7 @@ export default {
   },
 
   async init() {
-    this.friends = await this.getFriendPhotos();
+    this.friends = await this.getFriends();
   },
 
   photoCache: {},
@@ -79,7 +79,9 @@ export default {
   },
 
   getPhotos(owner) {
-    const params = { owner_id: owner,};
+    const params = {
+       owner_id: owner,
+      };
 
     return this.callApi('photos.getAll', params);
   },
