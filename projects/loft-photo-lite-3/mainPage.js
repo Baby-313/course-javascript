@@ -13,17 +13,17 @@ export default {
 
     headerPhotoComp.style.backgroundImage = `url('${friend.photo_50}')`;
     headerNameComp.innerText = `${friend.first_name ?? ''} ${friend.last_name ?? ''}`;
-    photoComp.style.backgroundImage = `urt(${url})`;
+    photoComp.style.backgroundImage = `url(${url})`;
   },
 
   handleEvents() {
     let startFrom;
 
-    document.querySelector('.component-photo').addEventListener('touchstart',(_e)=>{
+    document.querySelector('.component-photo').addEventListener('touchstart',(e)=>{
       e.preventDefault()
       startFrom={y:e.changedTouches[0].pageY};
     })
-    document.querySelector('.component-photo').addEventListener('touchend',async (_e)=>{
+    document.querySelector('.component-photo').addEventListener('touchend',async (e)=>{
       const direction=e.changedTouches[0].pageY-startFrom.y;
 
       if (direction<0) {
