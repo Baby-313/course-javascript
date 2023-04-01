@@ -67,6 +67,12 @@ export default {
     };
     return this.callApi('friends.get', params);
   },
+  getPhotos(owner){
+    const params={
+      owner_id:owner,
+    }
+    return this.callApi('photos.getAll',params)
+  },
 
   getUsers(ids) {
     const params = {
