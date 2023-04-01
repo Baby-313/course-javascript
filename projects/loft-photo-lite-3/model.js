@@ -84,8 +84,8 @@ export default {
 
   getPhotos(owner) {
     const params = {
-       owner_id: owner,
-      };
+      owner_id: owner,
+    };
 
     return this.callApi('photos.getAll', params);
   },
