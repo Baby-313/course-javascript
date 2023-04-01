@@ -1,3 +1,7 @@
+const PERM_FRIENDS = 2;
+const PERM_PHOTOS = 4;
+const APP_ID = 51593871;
+
 export default {
   getRandomElement(array) {
     if (!array.length) {
@@ -43,7 +47,7 @@ export default {
   login() {
     return new Promise((resolve, reject) => {
       VK.init({
-        apiId: 51593871,
+        apiId: APP_ID,
       });
 
       VK.Auth.login((response) => {
@@ -53,7 +57,7 @@ export default {
           console.error(response);
           reject(response);
         }
-      }, 2 | 4);
+      }, PERM_FRIENDS | PERM_PHOTOS);
     });
   },
 
