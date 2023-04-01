@@ -5,5 +5,7 @@ const pagesMap = {
 };
 
 export default {
-  openPage(name) {},
+  openPage(name) {
+    
+  },
 };
