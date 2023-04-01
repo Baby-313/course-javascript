@@ -21,6 +21,22 @@ export default {
 
     return { friend, id: photo.id, url: size.url }; 
   },
+  
+  findSize(photo) {
+    const size = photo.sizes.find((size) => size.width >= 360);
+
+    if (!size) {
+      return photo.sizes.reduce((biggest, current) => {
+        if (current.width > biggest.width) {
+          return current;
+        }
+
+        return biggest;
+      }, photo.sizes[0]);
+    }
+
+    return size;
+  },
 
   async init() {
     this.friends=await this.getFriends();
