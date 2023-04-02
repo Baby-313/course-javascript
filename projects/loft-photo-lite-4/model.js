@@ -62,7 +62,9 @@ export default {
     });
   },
 
-  logout() {},
+  logout() {
+    return new Promise((resolve) => VK.Auth.revokeGrants(resolve))
+  },
 
   callApi(method, params) {
     params.v = params.v || '5.131';
