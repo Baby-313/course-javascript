@@ -19,9 +19,9 @@ export default {
     const photo = this.getRandomElement(photos.items);
     const size = this.findSize(photo);
 
-    return { friend, id: photo.id, url: size.url }; 
+    return { friend, id: photo.id, url: size.url };
   },
-  
+
   findSize(photo) {
     const size = photo.sizes.find((size) => size.width >= 360);
 
@@ -39,11 +39,11 @@ export default {
   },
 
   async init() {
-    this.friends=await this.getFriends();
-    [this.me]=await this.getUsers();
+    this.friends = await this.getFriends();
+    [this.me] = await this.getUsers();
   },
-  
-  photoCache:{},
+
+  photoCache: {},
 
   login() {
     return new Promise((resolve, reject) => {
@@ -63,7 +63,7 @@ export default {
   },
 
   logout() {
-    return new Promise((resolve) => VK.Auth.revokeGrants(resolve))
+    return new Promise((resolve) => VK.Auth.revokeGrants(resolve));
   },
 
   callApi(method, params) {
@@ -85,11 +85,11 @@ export default {
     };
     return this.callApi('friends.get', params);
   },
-  getPhotos(owner){
-    const params={
-      owner_id:owner,
-    }
-    return this.callApi('photos.getAll',params)
+  getPhotos(owner) {
+    const params = {
+      owner_id: owner,
+    };
+    return this.callApi('photos.getAll', params);
   },
 
   getUsers(ids) {
@@ -97,9 +97,9 @@ export default {
       fields: ['photo_50', 'photo_100'],
     };
     if (ids) {
-      params.user_ids=ids;
+      params.user_ids = ids;
     }
-    return this.callApi('users.get',params)
+    return this.callApi('users.get', params);
   },
 
   async getFriendPhotos(id) {
