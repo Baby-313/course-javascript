@@ -56,7 +56,7 @@ function getCookies() {
     .filter(Boolean)
     .map((cookie) => cookie.match(/^([^=]+)=(.+)/))
     .reduce((obj, [, name, value]) => {
-      obj.set(name,value);
+      obj.set(name, value);
 
       return obj;
     }, new Map());
