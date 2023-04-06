@@ -35,7 +35,6 @@ function isAllTrue(array, fn) {
   }
 
   return true;
-
 }
 
 /*
@@ -142,7 +141,6 @@ function calculator(number = 0) {
     dif(...args) {
       for (let i = 0; i < args.length; i++) {
         number -= args[i];
-        
       }
       return number;
     },
@@ -150,11 +148,11 @@ function calculator(number = 0) {
     div(...args) {
       for (let i = 0; i < args.length; i++) {
         if (args[i] === 0) {
-          throw new Error("division by 0");
+          throw new Error('division by 0');
         }
         number /= args[i];
-    }
-    return number;
+      }
+      return number;
     },
 
     mul(...args) {
