@@ -16,6 +16,8 @@ export default {
     const headerNameComp = document.querySelector('.component-header-name');
     const footerPhotoComp = document.querySelector('.component-footer-photo');
 
+    console.log(stats);
+    
     this.friend = friend;
     this.photoId = id;
 
