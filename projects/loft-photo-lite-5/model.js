@@ -1,5 +1,3 @@
-import { name } from "file-loader";
-
 const PERM_FRIENDS = 2;
 const PERM_PHOTOS = 4;
 const APP_ID = 51593871;
