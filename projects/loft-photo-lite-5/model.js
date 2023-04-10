@@ -139,7 +139,7 @@ export default {
       params.body = JSON.stringify(body);
     }
 
-    const response = await fetch(`/loft-photo-lite-5/api/?${query}${query}`, params);
+    const response = await fetch(`/loft-photo-lite-5/api/?${query}`, params);
 
     return response.json();
   },
