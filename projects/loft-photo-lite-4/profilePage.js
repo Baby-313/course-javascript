@@ -34,9 +34,11 @@ export default {
           const photoId = e.target.dataset.id;
 
           const friendsPhotos = await model.getPhotos(this.user.id);
-          const photo = friendsPhotos.items.find((photo) => photo.id === photoId);
+          const photo = friendsPhotos.items.find((photo) => photo.id == photoId);
           const size = model.findSize(photo);
 
+
+          
           mainPage.setFriendAndPhoto(this.user, parseInt(photoId), size.url);
           pages.openPage('main');
         }
