@@ -56,10 +56,10 @@ function getCookies() {
     .filter(Boolean)
     .map((cookie) => cookie.match(/^([^=]+)=(.+)/))
     .reduce((obj, [, name, value]) => {
-      obj.set(name, value);
+      obj[name] = value;
 
       return obj;
-    }, new Map());
+    }, {});
 }
 
 filterNameInput.addEventListener('input', () => {
@@ -80,22 +80,24 @@ addButton.addEventListener('click', () => {
 
   updateTable();
 });
+
 listTable.addEventListener('click', (e) => {
   const { role, cookieName } = e.target.dataset;
 
   if (role === 'remove-cookie') {
-    cookiesMap.delete(cookieName);
-    document.cookie = `${cookieName}=deleted;max-age=0`;
+    delete cookiesMap[cookieName];
+    document.cookie = `${cookieName}=deleted; max-age=0`;
     updateTable();
   }
 });
+
 function updateTable() {
   const fragment = document.createDocumentFragment();
   let total = 0;
 
   listTable.innerHTML = '';
 
-  for (const [name, value] of cookiesMap) {
+  for (const [name, value] of Object.keys(cookiesMap)) {
     if (
       filterValue &&
       !name.toLowerCase().includes(filterValue.toLowerCase()) &&
